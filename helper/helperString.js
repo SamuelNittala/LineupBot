@@ -7,9 +7,10 @@ const agentFail =
 
 const viperString = 
 "```\nAbilities: snakebite(sb), poison cloud(pc) \n\n\
-Usage: -viper *ability* *side* *map* *area* \n\n\
-Example: -viper snakebite ct haven asite\n\n\
-Shortcut: -viper sb ct haven asite```"
+Usage: -viper *ability* *map* *area* \n\n\
+Supports poison cloud oneways, post plant snakebites\n\n\
+Example: -viper snakebite(sb) haven asite\n\n\
+Shortcut: -viper sb pp haven asite```"
 
 const sovaString =
 "```\nAbilites : recon,shock\n\n\

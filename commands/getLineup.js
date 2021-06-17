@@ -1,5 +1,6 @@
 const { prefix } = require('../config.json')
 const pool = require('../db/db')
+const { viper } = require('../helper/helperString')
 const helperString = require('../helper/helperString')
 /**
  * command prefix = '-' 
@@ -10,7 +11,7 @@ module.exports = async (client,callback) => {
 
 		const { content } = message
 		const details = content.slice(1).split(' ') 	
-		const agent = details[0], ability = details[1], side = details[2], map = details[3], area = details[4]
+		const agent = details[0]
 
 		if (content.startsWith(prefix)) {
 			if (details.length == 1) {
@@ -32,21 +33,21 @@ module.exports = async (client,callback) => {
 						message.reply(helperString['default'])	
 				}
 			}	
-			else if (details.length != 5) {
-				message.reply(helperString['default'])
-			} 
 			else {
-				const find_lineup_query = `select url from ${agent} where ability=$1 and side=$2 and map=$3 and area=$4`
-				const lineups = await pool.query(find_lineup_query,[ability,side,map,area])
-
-				const url_found = (lineups.rows.length == 0) ? false : true;
-					
-				if (!url_found) url = undefined
-				else {
-					url = lineups.rows[0]["url"]
+				switch(agent){
+					case 'sova':
+						find_lineup_query = 
+						`select url from sove where ability=$1 and side=$2 and map=$3 and area=$4`
+						lineups = await pool.query(find_lineup_query,[ability,side,map,area])
+						break
+					case 'viper':
+						const getViper = require('../helper/getViper')
+						const data = getViper(details)	
+						data.then(res => {
+							message.reply(res[0]["url"])
+						})
+						break
 				}
-				console.log(url)
-				callback(message,url)	
 			}
 		}
 	})
