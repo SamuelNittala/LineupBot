@@ -27,7 +27,7 @@ module.exports = async (client,callback) => {
 				}
 			}	
 			else if (details.length != 5) {
-				message.reply('`type: - {agent-name}`')
+				message.reply('`type: -{agent-name} for help`')
 			} 
 			else {
 				const find_lineup_query = `select url from ${agent} where ability=$1 and side=$2 and map=$3 and area=$4`
