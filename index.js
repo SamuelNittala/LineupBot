@@ -13,8 +13,7 @@ client.on('ready',() => {
 		if (message.author.bot) return
 		if (url == undefined) message.reply("Lineup not found!")
 		else {
-			const attachement = new Discord.MessageAttachment(url)
-			message.reply("Lineup",attachement)
+			message.reply(url)
 		}
 	})
 })
