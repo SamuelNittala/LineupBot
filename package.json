@@ -1,0 +1,22 @@
+{
+  "name": "lineup-bot",
+  "version": "1.0.0",
+  "description": "Discord Lineup bot for valorant.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lineup",
+    "valorant",
+    "discord"
+  ],
+  "author": "Samuel Nittala",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "pg": "^8.6.0"
+  }
+}
