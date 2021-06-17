@@ -1,9 +1,9 @@
 const { prefix } = require('../config.json')
 const pool = require('../db/db')
-const sovaHelperString = require('../helper/sova')
+const helperString = require('../helper/helperString')
 /**
  * command prefix = '-' 
- * commanad def = "AGENT_NAME" "ATT/DEF" "MAP" "OUTPUT_AREA" 
+ * commanad def = "AGENT_NAME" "ABILITY" "ATT/DEF" "MAP" "OUTPUT_AREA" 
  */
 module.exports = async (client,callback) => {
 	client.on('message', async message => {
@@ -16,18 +16,24 @@ module.exports = async (client,callback) => {
 			if (details.length == 1) {
 				switch(agent.toLowerCase()){
 					case 'sova':
-						message.reply(sovaHelperString)
+						message.reply(helperString['sova'])
 						break
 					case 'viper':
+						message.reply(helperString['viper'])
+						break
 					case 'cypher':
+						message.reply(helperString['agentFail'])
+						break
 					case 'brimstone':
+						message.reply(helperString['agentFail'])
+						break
 					default:
 						console.log(agent)
-						message.reply('`type: -{agent-name}`')	
+						message.reply(helperString['default'])	
 				}
 			}	
 			else if (details.length != 5) {
-				message.reply('`type: -{agent-name} for help`')
+				message.reply(helperString['default'])
 			} 
 			else {
 				const find_lineup_query = `select url from ${agent} where ability=$1 and side=$2 and map=$3 and area=$4`
