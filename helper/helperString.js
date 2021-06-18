@@ -10,7 +10,7 @@ const viperString =
 Usage: -viper *ability* *map* *area* \n\n\
 Supports poison cloud oneways, post plant snakebites\n\n\
 Example: -viper snakebite(sb) haven asite\n\n\
-Shortcut: -viper sb pp haven asite```"
+Shortcut: -viper sb pc(or sb) haven asite```"
 
 const sovaString =
 "```\nAbilites : recon,shock\n\n\
