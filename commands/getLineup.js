@@ -34,15 +34,18 @@ module.exports = async (client,callback) => {
 				}
 			}	
 			else {
+				let data
 				switch(agent){
 					case 'sova':
-						find_lineup_query = 
-						`select url from sove where ability=$1 and side=$2 and map=$3 and area=$4`
-						lineups = await pool.query(find_lineup_query,[ability,side,map,area])
+						const getSova = require('../helper/getSova')
+						data = getSova(details)
+						data.then(res => {
+							message.reply(res[0]["url"])
+						})
 						break
 					case 'viper':
 						const getViper = require('../helper/getViper')
-						const data = getViper(details)	
+						data = getViper(details)	
 						data.then(res => {
 							message.reply(res[0]["url"])
 						})

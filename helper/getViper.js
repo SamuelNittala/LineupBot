@@ -1,4 +1,5 @@
 const pool = require('../db/db')
+
 async function getViper(details) {
     let ability = details[1], map = details[2], area = details[3]
 
