@@ -41,14 +41,18 @@ module.exports = async (client,callback) => {
 						data = getSova(details)
 						data.then(res => {
 							message.reply(res[0]["url"])
-						})
+						}).catch(
+							err => message.reply("`Lineup not found`") 
+						)
 						break
 					case 'viper':
 						const getViper = require('../helper/getViper')
 						data = getViper(details)	
 						data.then(res => {
 							message.reply(res[0]["url"])
-						})
+						}).catch(
+							err => message.reply("`Lineup not found`") 
+						)
 						break
 				}
 			}
