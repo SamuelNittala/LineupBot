@@ -8,6 +8,7 @@ const config = require('./config.json')
 const getLineup = require('./commands/getLineup')
 
 client.on('ready',() => {
+	client.user.setStatus('Type -help to start!')
 	console.log('Listening!')
 	getLineup(client, (message,url) => {
 		if (message.author.bot) return
