@@ -38,12 +38,9 @@ module.exports = async (client,callback) => {
 				switch(agent){
 					case 'sova':
 						const getSova = require('../helper/getSova')
-						data = getSova(details)
-						data.then(res => {
-							message.reply(res[0]["url"])
-						}).catch(
-							err => message.reply("`Lineup not found`") 
-						)
+						url = getSova(details).then(data => {
+							message.reply(data)
+						}).catch(err => message.reply("`Lineup not found!`"))
 						break
 					case 'viper':
 						const getViper = require('../helper/getViper')

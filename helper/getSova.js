@@ -1,9 +1,10 @@
 const pool = require('../db/db')
 
 async function getSova(details){
+	console.log(details)
     let ability = details[1], side = details[2], map = details[3], area = details[4]
 
-    if (ability == 'rc') ability = 'recon'
+    if (ability == 'r') ability = 'recon'
     if (ability == 's') ability = 'shock'
 
     const find_query = 
@@ -12,7 +13,11 @@ async function getSova(details){
 
     const lineups = await pool.query(find_query,[ability,side,map,area])
 
-    return lineups.rows
+	let len = lineups.rows.length
+	if (len > 1) len = Math.floor(Math.random()*len)
+	else len--
+
+	return lineups.rows[len]["url"]
 }
 
 module.exports = getSova
