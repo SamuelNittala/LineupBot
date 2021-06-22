@@ -29,7 +29,8 @@ module.exports = async (client,callback) => {
 						message.reply(helperString['agentFail'])
 						break
 					case 'reyna':
-						message.reply('`Edhaina pani chusukora yedhava`');
+						message.reply('`You need this 🧠`');
+						break
 					default:
 						console.log(agent)
 						message.reply(helperString['default'])	
