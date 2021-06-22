@@ -28,6 +28,8 @@ module.exports = async (client,callback) => {
 					case 'brimstone':
 						message.reply(helperString['agentFail'])
 						break
+					case 'reyna':
+						message.reply('`Edhaina pani chusukora yedhava`');
 					default:
 						console.log(agent)
 						message.reply(helperString['default'])	
