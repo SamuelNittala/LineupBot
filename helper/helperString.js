@@ -15,7 +15,7 @@ Shortcut: -viper sb pp haven asite```"
 const sovaString =
 "```\nAbilites : recon,shock\n\n\
 Usage: -sova *ability* *side* *map* *area* \n\n\
-area = where you want the arrow to land\n\
+area = where you want the arrow to land\n\n\
 Example : -sova recon att ascent bsite```" 
 
 const helperStrings = {
