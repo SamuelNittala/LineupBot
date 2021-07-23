@@ -14,7 +14,6 @@ client.on('ready',() => {
 			name: '-help for info'
 		}
 	})
-	console.log('Listening!')
 	getLineup(client, (message,url) => {
 		if (message.author.bot) return
 		if (url == undefined) message.reply("Lineup not found!")
