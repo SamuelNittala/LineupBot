@@ -1,7 +1,7 @@
 const pool = require('../db/db')
 
 async function getSova(details){
-	console.log(details)
+
     let ability = details[1], side = details[2], map = details[3], area = details[4]
 
     if (ability == 'r') ability = 'recon'
